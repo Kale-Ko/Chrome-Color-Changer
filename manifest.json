@@ -1,0 +1,47 @@
+{
+  "name": "Chrome Color Changer",
+  "version": "1.0",
+  "description": "Change the colors of every page",
+  "permissions": [
+    "declarativeContent",
+    "storage",
+    "unlimitedStorage",
+    "activeTab"
+  ],
+  "options_page": "settings.html",
+  "content_scripts": [
+    {
+      "js": [
+        "chromecolorchanger.js"
+      ],
+      "matches": [
+        "<all_urls>"
+      ]
+    }
+  ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": false
+  },
+  "browser_action": {
+    "default_title": "Chrome Color Changer",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/16.png",
+      "32": "icons/32.png",
+      "48": "icons/48.png",
+      "64": "icons/64.png",
+      "128": "icons/128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/16.png",
+    "32": "icons/32.png",
+    "48": "icons/48.png",
+    "64": "icons/64.png",
+    "128": "icons/128.png"
+  },
+  "manifest_version": 2
+}
