@@ -25,8 +25,7 @@ chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
     function disablehere() {
         chrome.storage.sync.get(['unallowedsites'], function (result) {
             var unallowedsites = result.unallowedsites
-            if (unallowedsites.includes(currentdomain)) {
-            } else {
+            if (!unallowedsites.includes(currentdomain)) {
                 unallowedsites.push(currentdomain)
                 chrome.storage.sync.set({ unallowedsites: unallowedsites }, function () {
                 });
