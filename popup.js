@@ -62,7 +62,7 @@ chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
     }
 
     function opensettings() {
-        window.open("chrome-extension://cdciejeppgifebehekcmnpacpolplnjd/settings.html")
+        window.open("chrome-extension://" + chrome.runtime.id + "/settings.html")
     }
 
     function reload() {
