@@ -7,6 +7,7 @@ chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
 
     chrome.storage.sync.get(['unallowedsites'], function (result) {
         var unallowedsites = result.unallowedsites
+
         if (unallowedsites.includes(currentdomain)) {
             var newbutton = document.createElement("button");
             newbutton.innerHTML = "Enable on this site"

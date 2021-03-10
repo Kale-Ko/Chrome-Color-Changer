@@ -8,6 +8,7 @@ chrome.storage.sync.get(['backgroundcolor'], function (result) {
                 var textchangerenabled = result.textchangerenabled
                 chrome.storage.sync.get(['unallowedsites'], function (result) {
                     var unallowedsites = result.unallowedsites
+
                     if (backgroundcolor == null) {
                         backgroundcolor = "#bf7c00"
                     }
@@ -53,6 +54,7 @@ chrome.storage.sync.get(['backgroundcolor'], function (result) {
                         borderColor: "#000",
                         wheelAngle: 180
                     });
+
                     backgroundpicker.on(['color:change'], function (color) {
                         document.getElementById("custombackgroundcolor").value = color.hexString
                     });
@@ -60,6 +62,7 @@ chrome.storage.sync.get(['backgroundcolor'], function (result) {
                         document.getElementById("customtextcolor").value = color.hexString
 
                     });
+
                     function updatecolors() {
                         backgroundpicker.color.hexString = document.getElementById("custombackgroundcolor").value
                         textpicker.color.hexString = document.getElementById("customtextcolor").value

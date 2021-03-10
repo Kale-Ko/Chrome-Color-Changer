@@ -1,14 +1,15 @@
 window.onload = function () {
     chrome.storage.sync.get(['unallowedsites'], function (result) {
+        var unallowed = "false";
         var unallowedsites = result.unallowedsites
-        if (unallowedsites == null) {
-            unallowedsites = []
-        }
+        if (unallowedsites == null) unallowedsites = []
+
         for (var index = 0; index < unallowedsites.length; index++) {
             if (window.location.hostname == unallowedsites[index]) {
-                var unallowed = "true"
+                unallowed = "true"
             }
         }
+
         if (unallowed == "true") {
             console.log("You turned off this website in settings")
         } else {
@@ -17,10 +18,12 @@ window.onload = function () {
                 chrome.storage.sync.get(['backgroundchangerenabled'], function (result) {
                     var backgroundchangerenabled = result.backgroundchangerenabled
                     chrome.storage.sync.get(['textcolor'], function (result) {
+                        var textcolor = result.textcolor
                         chrome.storage.sync.get(['textchangerenabled'], function (result) {
                             var textchangerenabled = result.textchangerenabled
-                            var textcolor = result.textcolor
+
                             console.groupCollapsed("Applying Colors To Page");
+
                             if (backgroundcolor == null) {
                                 backgroundcolor = "#bf7c00"
                             }
@@ -38,7 +41,16 @@ window.onload = function () {
                                 textchangerenabled = "true"
                             }
                             if (textchangerenabled == "true") {
-                                document.getElementsByTagName('style')[0].innerHTML = document.getElementsByTagName('style')[0].innerHTML + "\np, label {color: " + textcolor + "}";
+                                var text = document.getElementsByTagName("p")
+                                for (index = 0; index < text.length; index++) {
+                                    text.item(index).style.textColor = textcolor;
+                                }
+
+                                text = document.getElementsByTagName("a")
+                                for (index = 0; index < text.length; index++) {
+                                    text.item(index).style.textColor = textcolor;
+                                }
+
                                 console.log("Text color set to " + textcolor)
                             }
                             console.groupEnd();
@@ -48,4 +60,4 @@ window.onload = function () {
             });
         }
     });
-} 
+}
