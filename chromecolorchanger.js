@@ -43,12 +43,27 @@ window.onload = function () {
                             if (textchangerenabled == "true") {
                                 var text = document.getElementsByTagName("p")
                                 for (index = 0; index < text.length; index++) {
-                                    text.item(index).style.textColor = textcolor;
+                                    text.item(index).style.color = textcolor;
                                 }
 
                                 text = document.getElementsByTagName("a")
                                 for (index = 0; index < text.length; index++) {
-                                    text.item(index).style.textColor = textcolor;
+                                    text.item(index).style.color = textcolor;
+                                }
+
+                                text = document.getElementsByTagName("label")
+                                for (index = 0; index < text.length; index++) {
+                                    text.item(index).color = textcolor;
+                                }
+
+                                text = document.getElementsByTagName("text")
+                                for (index = 0; index < text.length; index++) {
+                                    text.item(index).color = textcolor;
+                                }
+
+                                text = document.getElementsByTagName("paragraph")
+                                for (index = 0; index < text.length; index++) {
+                                    text.item(index).color = textcolor;
                                 }
 
                                 console.log("Text color set to " + textcolor)
