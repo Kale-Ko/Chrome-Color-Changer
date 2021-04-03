@@ -9,26 +9,18 @@ chrome.storage.sync.get(['backgroundcolor'], function (result) {
                 chrome.storage.sync.get(['unallowedsites'], function (result) {
                     var unallowedsites = result.unallowedsites
 
-                    if (backgroundcolor == null) {
-                        backgroundcolor = "#bf7c00"
-                    }
-                    if (backgroundchangerenabled == null) {
-                        backgroundchangerenabled = "true"
-                    }
-                    if (textcolor == null) {
-                        textcolor = "#00ff95"
-                    }
-                    if (textchangerenabled == null) {
-                        textchangerenabled = "true"
-                    }
-                    if (unallowedsites == null) {
-                        unallowedsites = [""]
-                    }
+                    if (backgroundcolor == null) backgroundcolor = "#bf7c00"
+                    if (backgroundchangerenabled == null) backgroundchangerenabled = true
 
-                    document.getElementById("custombackgroundcolor").addEventListener("onkeyup", updatecolors);
-                    document.getElementById("customtextcolor").addEventListener("onkeyup", updatecolors);
-                    document.getElementById("savebutton").addEventListener("click", savesettings);
-                    document.getElementById("resetbutton").addEventListener("click", reset);
+                    if (textcolor == null) textcolor = "#00ff95"
+                    if (textchangerenabled == null) textchangerenabled = true
+
+                    if (unallowedsites == null) unallowedsites = [""]
+
+                    document.getElementById("custombackgroundcolor").addEventListener("onkeyup", updatecolors());
+                    document.getElementById("customtextcolor").addEventListener("onkeyup", updatecolors());
+                    document.getElementById("savebutton").addEventListener("click", savesettings());
+                    document.getElementById("resetbutton").addEventListener("click", reset());
 
                     document.getElementById("custombackgroundcolor").value = backgroundcolor
                     document.getElementById("backgroundchangerenabled").value = backgroundchangerenabled
@@ -45,6 +37,7 @@ chrome.storage.sync.get(['backgroundcolor'], function (result) {
                         borderColor: "#000",
                         wheelAngle: 180
                     });
+
                     var textpicker = new iro.ColorPicker('#textpicker', {
                         id: "textpicker",
                         width: 150,
@@ -58,6 +51,7 @@ chrome.storage.sync.get(['backgroundcolor'], function (result) {
                     backgroundpicker.on(['color:change'], function (color) {
                         document.getElementById("custombackgroundcolor").value = color.hexString
                     });
+
                     textpicker.on(['color:change'], function (color) {
                         document.getElementById("customtextcolor").value = color.hexString
 
@@ -88,6 +82,7 @@ chrome.storage.sync.get(['backgroundcolor'], function (result) {
                         chrome.storage.sync.remove("textcolor");
                         chrome.storage.sync.remove("textchangerenabled");
                         chrome.storage.sync.remove("unallowedsites");
+
                         window.location.reload()
                     }
                 });

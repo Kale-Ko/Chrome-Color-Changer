@@ -3,6 +3,7 @@
 
 <head>
     <title>Chrome Color Changer - Settings</title>
+
     <style>
         p {
             font-family: verdana;
@@ -47,26 +48,34 @@
 <body>
     <p>Settings</p>
     <script src="colorpicker.js"></script>
+
     <br><br><label id="backgroundpickerlabel">Background color:</label>
     <div name="backgroundpicker" id="backgroundpicker"></div>
+
     <input type="text" name="backgroundcolor" id="custombackgroundcolor" placeholder="Custom color">
     <br><br><label id="backgroundchangerenabledlabel">Background color enabled:</label>
     <select id="backgroundchangerenabled">
         <option value="true">True</option>
         <option value="false">False</option>
     </select>
+
     <br><br><br><label id="textpickerlabel">Text color:</label>
     <div name="textpicker" id="textpicker"></div>
+
     <input type="text" name="textcolor" id="customtextcolor" placeholder="Custom color">
     <br><br><label id="textchangerenabledlabel">Text color enabled:</label>
     <select id="textchangerenabled">
         <option value="true">True</option>
         <option value="false">False</option>
     </select>
+
     <br><br><br><label>Unallowed Domains: </label><input type=text id="unallowedsites"
         placeholder="Separate With Commas"></input>
+
     <br><br><br><button type="button" id="savebutton">Save</button>
+
     <br><br><br><br><br><button type="reset" id="resetbutton">Reset Settings</button>
+
     <script src="settings.js"></script>
     <script src="chromecolorchanger.js"></script>
 </body>

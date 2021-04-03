@@ -3,8 +3,7 @@ chrome.runtime.onInstalled.addListener(function () {
         chrome.storage.sync.set({ backgroundchangerenabled: "true" }, function () {
             chrome.storage.sync.set({ textcolor: "#00ff95" }, function () {
                 chrome.storage.sync.set({ textchangerenabled: "true" }, function () {
-                    chrome.storage.sync.set({ unallowedsites: [] }, function () {
-                    });
+                    chrome.storage.sync.set({ unallowedsites: [] }, function () { });
                 });
             });
         });
