@@ -1,8 +1,8 @@
 {
     "manifest_version": 2,
     "name": "Chrome Color Changer",
-    "version": "2.2",
-    "description": "Change the colors of every page",
+    "version": "2.0",
+    "description": "A chrome extension to change the background and text colors on a website",
     "permissions": [
         "declarativeContent",
         "storage",
