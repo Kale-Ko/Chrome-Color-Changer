@@ -3,7 +3,7 @@ chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
     var url = new URL(tab.url)
     var currentdomain = url.hostname
 
-    document.getElementById("opensettings").addEventListener("click", opensettings())
+    document.getElementById("opensettings").addEventListener("click", opensettings)
 
     chrome.storage.sync.get(['unallowedsites'], function (result) {
         var unallowedsites = result.unallowedsites
@@ -12,13 +12,13 @@ chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
             var newbutton = document.createElement("button")
             newbutton.innerHTML = "Enable on this site"
             newbutton.id = "enablehere"
-            newbutton.addEventListener("click", enablehere())
+            newbutton.addEventListener("click", enablehere)
             document.body.appendChild(newbutton)
         } else {
             var newbutton = document.createElement("button")
             newbutton.innerHTML = "Disable on this site"
             newbutton.id = "disablehere"
-            newbutton.addEventListener("click", disablehere())
+            newbutton.addEventListener("click", disablehere)
             document.body.appendChild(newbutton)
         }
     })
@@ -39,7 +39,7 @@ chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
         var newbutton = document.createElement("button")
         newbutton.innerHTML = "Enable on this site"
         newbutton.id = "enablehere"
-        newbutton.addEventListener("click", enablehere())
+        newbutton.addEventListener("click", enablehere)
         document.body.appendChild(newbutton)
 
         reload()
@@ -62,7 +62,7 @@ chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
         var newbutton = document.createElement("button")
         newbutton.innerHTML = "Disable on this site"
         newbutton.id = "disablehere"
-        newbutton.addEventListener("click", disablehere())
+        newbutton.addEventListener("click", disablehere)
         document.body.appendChild(newbutton)
 
         reload()
