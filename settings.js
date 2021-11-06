@@ -1,3 +1,10 @@
+/**
+    @license
+    MIT License
+    Copyright (c) 2021 Kale Ko
+    See https://kaleko.ga/license.txt
+*/
+
 chrome.storage.sync.get(['backgroundcolor'], function (result) {
     var backgroundcolor = result.backgroundcolor
     chrome.storage.sync.get(['backgroundchangerenabled'], function (result) {
