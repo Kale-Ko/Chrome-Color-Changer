@@ -1,10 +1,3 @@
-/**
-    @license
-    MIT License
-    Copyright (c) 2021 Kale Ko
-    See https://kaleko.ga/license.txt
-*/
-
 chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
     var tab = tabs[0]
     var url = new URL(tab.url)
